@@ -1,5 +1,6 @@
 const expect = require('chai').expect;
-const KeyedList = require('../KeyedList');
+const KeyedList = require(__dirname + '/../KeyedList');
+
 const testData = [{
     name: "test1",
     value: 1
