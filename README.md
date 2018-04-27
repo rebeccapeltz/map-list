@@ -26,6 +26,6 @@ keyedList.getItemByKey("test1")
 or as a member of an array
 ```
 keyedList.asList[0];
-
+```
 
 [![Build Status](https://travis-ci.org/rebeccapeltz/keyed-list.svg?branch=master)](https://travis-ci.org/rebeccapeltz/keyed-list)
