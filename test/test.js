@@ -43,4 +43,24 @@ describe('KeyedList class', function () {
         expect(keys[0]).to.be.equal("test1");
         expect(keys[1]).to.be.equal("test2");
     });
+    it ('can be represented as a numerically indexed array',()=>{
+        let kl = new KeyedList(KEY);
+        testData.forEach(test =>{
+            kl.add(test);
+        });
+        let klArray = kl.asList();
+        expect(Array.isArray(klArray)).to.be.equal(true);
+        expect(klArray[0].value).to.be.equal(1);
+        expect(klArray.length).to.be.equal(2);
+    });
+    it ('can be represented as a map whose contents are accessible by key',()=>{
+        let kl = new KeyedList(KEY);
+        testData.forEach(test =>{
+            kl.add(test);
+        });
+        let klMap = kl.asMap();
+        expect(typeof klMap).to.be.equal("object");
+        expect(klMap["test1"].value).to.be.equal(1);
+        expect(klMap.length).to.be.equal(undefined);
+    });
 });
