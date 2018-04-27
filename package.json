@@ -1,5 +1,5 @@
 {
-  "name": "keyed-list",
+  "name": "map-list",
   "version": "1.0.0",
   "description": "A data structure that can server to iterate or fetch for key.",
   "main": "index.js",
