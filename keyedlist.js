@@ -27,7 +27,6 @@ module.exports =  class KeyedList {
     }
     get keys() {
         return Object.keys(this._mapCollection);
-        ;
     }
    
 }

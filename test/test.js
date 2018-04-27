@@ -34,4 +34,13 @@ describe('KeyedList class', function () {
         expect(kl.add.bind(kl, itemB)).to.throw('User with name = test1 already exists');
         expect(kl.getItemByKey("test1").value).to.be.equal(1);
     });
+    it ('return a list of key for the object in the collection',()=>{
+        let kl = new KeyedList(KEY);
+        testData.forEach(test =>{
+            kl.add(test);
+        });
+        let keys = kl.keys;
+        expect(keys[0]).to.be.equal("test1");
+        expect(keys[1]).to.be.equal("test2");
+    });
 });
