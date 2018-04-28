@@ -1,6 +1,6 @@
 //https://www.valentinog.com/blog/memory-usage-node-js/
 
-module.exports =  class KeyedList {
+module.exports =  class MapList {
     constructor(key) {
         this._listCollection = [];
         this._mapCollection = {};

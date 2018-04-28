@@ -13,19 +13,19 @@ You want to use the name property as the key.  When you instantiate the key-list
 you supply the name of the key.
 
 ```
-let keyedList = new KeyedList("name");
+let mapList = new MapList("name");
 ```
 Use the `add` command to add each object to the collection.
 ```
-keyedList.add(obj);
+mapList.add(obj);
 ```
 Now you can access the object directly
 ```
-keyedList.getItemByKey("test1")
+mapList.getItemByKey("test1")
 ```
 or as a member of an array
 ```
-keyedList.asList[0];
+mapList.asList[0];
 ```
 
 [![Build Status](https://travis-ci.org/rebeccapeltz/keyed-list.svg?branch=master)](https://travis-ci.org/rebeccapeltz/keyed-list)
