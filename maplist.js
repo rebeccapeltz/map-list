@@ -19,6 +19,9 @@ module.exports =  class MapList {
     getItemByKey(itemKey) {
         return this._mapCollection[itemKey];
     }
+    getItemByIndex(itemIndex) {
+        return this._listCollection[itemIndex];
+    }
     asList() {
         return this._listCollection;
     }
