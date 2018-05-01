@@ -24,6 +24,12 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/index.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Maplist_memory",
+            "program": "${workspaceFolder}/performance/maplist_memory.js"
         }
     ]
 }
