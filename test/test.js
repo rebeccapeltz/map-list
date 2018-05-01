@@ -35,7 +35,7 @@ describe('MapList class', function () {
         let fetchedItem = this.mapList.getItemByIndex(0);
         expect(fetchedItem.value).to.be.equal(1);
     });
-    it('should throw an error if flagDuplicates is true you try add a duplicate key', () => {
+    it('should throw an error if errOnDuplicates is true you try add a duplicate key', () => {
         let itemA = {
             name: "test1",
             value: 1
@@ -46,8 +46,10 @@ describe('MapList class', function () {
         };
         let kl = new MapList(KEY,true);
         kl.add(itemA); //no problem
-        expect(kl.add.bind(kl, itemB)).to.throw('User with name = test1 already exists');
-        expect(kl.getItemByKey("test1").value).to.be.equal(1);
+        expect(kl.add.bind(kl, itemB)).to.throw('Item with name = test1 already exists');
+        expect(kl.asList().length).to.equal(0);
+        //test for empty object
+        expect(Object.keys(kl.asMap()).length === 0).to.equal(true);
     });
     it('return a list of key for the object in the collection', () => {
         let kl = new MapList(KEY);
@@ -58,20 +60,20 @@ describe('MapList class', function () {
         expect(keys[0]).to.be.equal("test1");
         expect(keys[1]).to.be.equal("test2");
     });
-    it('should throw an error if flagDuplicates is true you try add a duplicate key', () => {
-        let itemA = {
-            name: "test1",
-            value: 1
-        };
-        let itemB = {
-            name: "test1",
-            value: 2
-        };
-        let kl = new MapList(KEY,true);
-        kl.add(itemA); //no problem
-        expect(kl.add.bind(kl, itemB)).to.throw('User with name = test1 already exists');
-        expect(kl.getItemByKey("test1").value).to.be.equal(1);
-    });
+    // it('should throw an error if errOnDuplicates is true you try add a duplicate key', () => {
+    //     let itemA = {
+    //         name: "test1",
+    //         value: 1
+    //     };
+    //     let itemB = {
+    //         name: "test1",
+    //         value: 2
+    //     };
+    //     let kl = new MapList(KEY,true);
+    //     kl.add(itemA); //no problem
+    //     expect(kl.add.bind(kl, itemB)).to.throw('User with name = test1 already exists');
+    //     expect(kl.getItemByKey("test1").value).to.be.equal(1);
+    // });
     it('return a list of key for the object in the collection', () => {
         let kl = new MapList(KEY);
         testData.forEach(test => {
@@ -81,21 +83,21 @@ describe('MapList class', function () {
         expect(keys[0]).to.be.equal("test1");
         expect(keys[1]).to.be.equal("test2");
     });
-    it('should throw an error if flagDuplicates is true you try add a duplicate key', () => {
-        let itemA = {
-            name: "test1",
-            value: 1
-        };
-        let itemB = {
-            name: "test1",
-            value: 2
-        };
-        let kl = new MapList(KEY,true);
-        kl.add(itemA); //no problem
-        expect(kl.add.bind(kl, itemB)).to.throw('User with name = test1 already exists');
-        expect(kl.getItemByKey("test1").value).to.be.equal(1);
-    });
-    it('should NOT throw an error if flagDuplicates is false (default) you try add a duplicate key', () => {
+    // it('should throw an error if flagDuplicates is true you try add a duplicate key', () => {
+    //     let itemA = {
+    //         name: "test1",
+    //         value: 1
+    //     };
+    //     let itemB = {
+    //         name: "test1",
+    //         value: 2
+    //     };
+    //     let kl = new MapList(KEY,true);
+    //     kl.add(itemA); //no problem
+    //     expect(kl.add.bind(kl, itemB)).to.throw('User with name = test1 already exists');
+    //     expect(kl.getItemByKey("test1").value).to.be.equal(1);
+    // });
+    it('should NOT throw an error if errOnDuplicates is false (default) you try add a duplicate key', () => {
         let itemA = {
             name: "test1",
             value: 1
@@ -107,7 +109,7 @@ describe('MapList class', function () {
         let kl = new MapList(KEY);
         kl.add(itemA); //no problem
         expect(kl.add.bind(kl, itemB)).to.not.throw('User with name = test1 already exists');
-        expect(kl.getItemByKey("test1").value).to.be.equal(2);
+        expect(kl.getItemByKey("test1").value).to.be.equal(1);
     });
     it('return a list of key for the object in the collection', () => {
         let kl = new MapList(KEY);

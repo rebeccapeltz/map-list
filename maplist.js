@@ -1,20 +1,34 @@
 //https://www.valentinog.com/blog/memory-usage-node-js/
 
-module.exports =  class MapList {
-    constructor(key,flagDuplicates=false) {
+module.exports = class MapList {
+    constructor(key, errOnDuplicates = false) {
         this._listCollection = [];
         this._mapCollection = {};
         this.key = key;
-        this.flagDuplicates = flagDuplicates;
+        this.errOnDuplicates = errOnDuplicates;
+    }
+    _clearCollections() {
+        this._listCollection = [];
+        this._mapCollection = {};
+    }
+    _addToCollections(item) {
+        //rule: if errOnDuplicates is false and there is a duplicate, 1st one is kept
+        if (this._mapCollection[item[this.key]] === undefined) {
+            this._listCollection.push(item);
+            this._mapCollection[item[this.key]] = item;
+        }
     }
     add(item) {
         // check if already added  to keep user unique
-        if (this.flagDuplicates && this.keys.indexOf(item[this.key]) > -1) {
-            throw new Error(`User with ${this.key} = ${item[this.key]} already exists`);
-        }
-        else {
-            this._listCollection.push(item);
-            this._mapCollection[item[this.key]] = item;
+        if (this.errOnDuplicates === true) {
+            if (this._mapCollection[item[this.key]] !== undefined) {
+                this._clearCollections();
+                throw new Error(`Item with ${this.key} = ${item[this.key]} already exists`);
+            } else {
+                this._addToCollections(item);
+            }
+        } else {
+            this._addToCollections(item);
         }
     }
     getItemByKey(itemKey) {
@@ -32,8 +46,5 @@ module.exports =  class MapList {
     get keys() {
         return Object.keys(this._mapCollection);
     }
-   
+
 }
-
-
-
