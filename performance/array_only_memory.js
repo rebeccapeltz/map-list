@@ -1,5 +1,5 @@
 
-let arrSource = Array(1e2).fill({seed:"test"});
+let arrSource = Array(1e6).fill({seed:"test"});
 const sizeof = require('object-sizeof');
 let newArray = [];
 

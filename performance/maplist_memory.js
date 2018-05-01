@@ -2,7 +2,7 @@ const MapList = require('../maplist');
 const sizeof = require('object-sizeof');
 let mapList = null;
 
-let arrSource = Array(1e2).fill({seed:"test"});
+let arrSource = Array(1e6).fill({seed:"test"});
 
 
 let arrData = arrSource.map((item,index)=>{
@@ -11,13 +11,18 @@ let arrData = arrSource.map((item,index)=>{
     newItem.value = index;
     return newItem;
 });
+arrSource = null;
+// console.log("arrData created");
 
 mapList = new MapList("name");
-arrData.forEach(item=>{
+arrData.forEach((item,index)=>{
     mapList.add(item);
+    // if (index % 10000 === 0){
+    //     console.log(index, "items added");
+    // }
 });
 
-arrSource = null;
+
 arrData = null;
 
 const used = process.memoryUsage().heapUsed / 1024 / 1024;

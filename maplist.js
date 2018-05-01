@@ -1,14 +1,15 @@
 //https://www.valentinog.com/blog/memory-usage-node-js/
 
 module.exports =  class MapList {
-    constructor(key) {
+    constructor(key,flagDuplicates=false) {
         this._listCollection = [];
         this._mapCollection = {};
         this.key = key;
+        this.flagDuplicates = flagDuplicates;
     }
     add(item) {
-        //check if already added  to keep user unique
-        if (this.keys.indexOf(item[this.key]) > -1) {
+        // check if already added  to keep user unique
+        if (this.flagDuplicates && this.keys.indexOf(item[this.key]) > -1) {
             throw new Error(`User with ${this.key} = ${item[this.key]} already exists`);
         }
         else {
