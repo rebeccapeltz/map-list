@@ -38,4 +38,4 @@ or as a member of an array
 mapList.asList[0] or mapList.getItemByIndex(0);
 ```
 
-[![Build Status](https://travis-ci.org/rebeccapeltz/keyed-list.svg?branch=master)](https://travis-ci.org/rebeccapeltz/keyed-list)
+[![Build Status](https://travis-ci.org/rebeccapeltz/map-list.svg?branch=master)](https://travis-ci.org/rebeccapeltz/map-list)
