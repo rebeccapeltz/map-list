@@ -1,6 +1,5 @@
 
 let arrSource = Array(1e6).fill({seed:"test"});
-const sizeof = require('object-sizeof');
 let newArray = [];
 
 let arrData = arrSource.map((item,index)=>{
@@ -19,4 +18,3 @@ arrData = null;
 
 const used = process.memoryUsage().heapUsed / 1024 / 1024;
 console.log(`The script uses approximately ${used.toFixed(2)} MB`);
-console.log(`The new array is ${sizeof(newArray) / 1000} MB`);

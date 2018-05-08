@@ -1,5 +1,4 @@
 const MapList = require('../maplist');
-const sizeof = require('object-sizeof');
 let mapList = null;
 
 let arrSource = Array(1e6).fill({seed:"test"});
@@ -27,4 +26,3 @@ arrData = null;
 
 const used = process.memoryUsage().heapUsed / 1024 / 1024;
 console.log(`The script uses approximately ${used.toFixed(2)} MB`);
-console.log(`The map list is ${sizeof(mapList) / 1000} MB`);

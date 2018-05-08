@@ -38,4 +38,17 @@ or as a member of an array
 mapList.asList[0] or mapList.getItemByIndex(0);
 ```
 
+**To use this node module in the browser**
+```
+npm install map-list
+```
+In the browser code (for example main.js) use require to load the module
+```
+let MapList = require('maplist');
+```
+Run browserify to transpile for the browser and build bundle.js
+```
+npm run build-example
+```
+
 [![Build Status](https://travis-ci.org/rebeccapeltz/map-list.svg?branch=master)](https://travis-ci.org/rebeccapeltz/map-list)

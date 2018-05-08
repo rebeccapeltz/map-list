@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test MapList</title>
+    <script src="bundle.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let val = mapList.getItemByKey("test99").value;
+            document.getElementById("test-val").innerHTML = val;
+        })
+    </script>
+</head>
+
+<body>
+   <p>The value of "test99" is  <span id="test-val"></span></p>
+</body>
+
+</html>
