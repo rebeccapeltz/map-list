@@ -1,5 +1,5 @@
 let MapList = require('./maplist.js');
-let arrSource = Array(1e2).fill({
+let arrSource = Array(1e6).fill({
     seed: "test"
 });
 

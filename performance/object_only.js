@@ -13,8 +13,5 @@ arrData.forEach((item)=>{
     newObject[item.name] = item.value;
 })
 
-arrSource = null;
-arrData = null;
-
 const used = process.memoryUsage().heapUsed / 1024 / 1024;
 console.log(`The script uses approximately ${used.toFixed(2)} MB`);
