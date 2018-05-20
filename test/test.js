@@ -48,7 +48,25 @@ describe('MapList class', function () {
             value: 3
         };
         expect(this.mapList.remove.bind(this.mapList,itemToRemove)).to.throw('Item with key test3 does not exist');
-    })
+    });
+    it('should update an item from both collections based on id', function () {
+        let itemToUpdate = {
+            name: "test1",
+            value: 11
+        };
+        this.mapList.update(itemToUpdate);
+        expect(this.mapList._listCollection.length).to.be.equal(2);
+        let keys = Object.keys(this.mapList._mapCollection);
+        expect(keys.length).to.be.equal(2);
+        expect(this.mapList.getItemByKey("test1").value).to.be.equal(11);
+    });
+    it ('should throw an error if you try to update an item that does not exist',function(){
+        let itemToUpdate = {
+            name: "test3",
+            value: 3
+        };
+        expect(this.mapList.update.bind(this.mapList,itemToUpdate)).to.throw('Item with key test3 does not exist');
+    });
     it('should throw an error if errOnDuplicates is true you try add a duplicate key', () => {
         let itemA = {
             name: "test1",
