@@ -37,6 +37,11 @@ or as a member of an array
 ```
 mapList.asList[0] or mapList.getItemByIndex(0);
 ```
+Use the `remove` command to delete an objects from the collecion  
+```
+mapList.remove(item);  
+
+If the item doesn't exist, and error will be thrown.
 
 **To use this node module in the browser**
 ```
