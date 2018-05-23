@@ -1,4 +1,4 @@
-let MapList = require('./maplist.js');
+let MapList = require('./index.js');
 let arrSource = Array(1e6).fill({
     seed: "test"
 });

@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const MapList = require('../maplist');
+const MapList = require('../index');
 
 const testData = [{
     name: "test1",
