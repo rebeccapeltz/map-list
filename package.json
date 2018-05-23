@@ -1,6 +1,6 @@
 {
   "name": "map-list",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "repository": "https://github.com/rebeccapeltz/map-list",
   "description": "A data structure that can server to iterate or fetch for key.",
   "main": "index.js",
