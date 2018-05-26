@@ -37,7 +37,7 @@ describe('MapList class', function () {
     });
     it('should remove an item from both collections based on id', function () {
         let itemToRemove = this.mapList.getItemByIndex(0);
-        this.mapList.remove(itemToRemove);
+        this.mapList.remove(itemToRemove["name"]);
         expect(this.mapList._listCollection.length).to.be.equal(1);
         let keys = Object.keys(this.mapList._mapCollection);
         expect(keys.length).to.be.equal(1);
@@ -47,7 +47,7 @@ describe('MapList class', function () {
             name: "test3",
             value: 3
         };
-        expect(this.mapList.remove.bind(this.mapList,itemToRemove)).to.throw('Item with key test3 does not exist');
+        expect(this.mapList.remove.bind(this.mapList,itemToRemove["name"])).to.throw('Item with key test3 does not exist');
     });
     it('should update an item from both collections based on id', function () {
         let itemToUpdate = {

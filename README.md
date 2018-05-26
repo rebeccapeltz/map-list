@@ -37,9 +37,9 @@ or as a member of an array
 ```
 mapList.asList[0] or mapList.getItemByIndex(0);
 ```
-Use the `remove` function to delete an object from the collecion  
+Use the `remove` function to delete an object from the collecion by using just the key as an argument. 
 ```
-mapList.remove(item);  
+mapList.remove(itemKey);  
 ```
 
 If the item doesn't exist, an error will be thrown.  

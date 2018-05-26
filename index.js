@@ -31,18 +31,19 @@ module.exports = class MapList {
             this._addToCollections(item);
         }
     }
-    remove(itemToRemove) {
-        if (this.getItemByKey(itemToRemove[this.key]) !== undefined) {
+    remove(keyToRemove) {
+        let itemToRemove = this.getItemByKey(keyToRemove);
+        if (itemToRemove !== undefined) {
             this._listCollection.some((item, index)=>{
-                if (item[this.key] === itemToRemove[this.key]){
+                if (item[this.key] === keyToRemove){
                     this._listCollection.splice(index,1);
-                    delete this._mapCollection[itemToRemove[this.key]];
+                    delete this._mapCollection[keyToRemove];
                     itemToRemove = null;
                     return true;
                 }
             }, this);
         } else {
-            throw new Error(`Item with key ${itemToRemove[this.key]} does not exist`);
+            throw new Error(`Item with key ${keyToRemove} does not exist`);
         }
     }
     update(itemToUpdate){
