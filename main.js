@@ -1,4 +1,4 @@
-let MapList = require('./index.js');
+import { MapList } from './index.js';
 let arrSource = Array(1e6).fill({
     seed: "test"
 });
