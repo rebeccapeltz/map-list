@@ -38,7 +38,7 @@ module.exports = class MapList {
                     this._listCollection.splice(index,1);
                     delete this._mapCollection[itemToRemove[this.key]];
                     itemToRemove = null;
-                    return;
+                    return true;
                 }
             }, this);
         } else {
