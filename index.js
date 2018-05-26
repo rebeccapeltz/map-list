@@ -33,27 +33,26 @@ module.exports = class MapList {
     }
     remove(itemToRemove) {
         if (this.getItemByKey(itemToRemove[this.key]) !== undefined) {
-            let self = this;
-            this._listCollection.forEach((item, index)=>{
-                if (item[self.key] === itemToRemove[self.key]){
-                    self._listCollection.splice(index,1);
-                    delete self._mapCollection[itemToRemove[self.key]];
+            this._listCollection.some((item, index)=>{
+                if (item[this.key] === itemToRemove[this.key]){
+                    this._listCollection.splice(index,1);
+                    delete this._mapCollection[itemToRemove[this.key]];
                     itemToRemove = null;
+                    return;
                 }
-            });
+            }, this);
         } else {
             throw new Error(`Item with key ${itemToRemove[this.key]} does not exist`);
         }
     }
     update(itemToUpdate){
         if (this.getItemByKey(itemToUpdate[this.key]) !== undefined) {
-            let self = this;
             this._listCollection.forEach((item, index)=>{
-                if (item[self.key] === itemToUpdate[self.key]){
-                    self._listCollection[index] = itemToUpdate;
-                    self._mapCollection[itemToUpdate[self.key]] = itemToUpdate;
+                if (item[this.key] === itemToUpdate[this.key]){
+                    this._listCollection[index] = itemToUpdate;
+                    this._mapCollection[itemToUpdate[this.key]] = itemToUpdate;
                 }
-            });
+            },this);
         } else {
             throw new Error(`Item with key ${itemToUpdate[this.key]} does not exist`);
         }
