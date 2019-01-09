@@ -23,5 +23,8 @@
     "browserify": "^16.2.0",
     "watchify": "^3.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "cached-path-relative": ">=1.0.2",
+    "randomatic": ">=3.0.0"
+  }
 }
